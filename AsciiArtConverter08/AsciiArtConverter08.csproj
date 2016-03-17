@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D1F2DB8F-9958-4D65-8224-7A76C1B7E6AE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AsciiArtConverter08</RootNamespace>
+    <AssemblyName>AsciiArtConverter08</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AsciiArtConverter08.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>アイコン1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="RGiesecke.DllExport.Metadata, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f52d83c1a22df51, processorArchitecture=MSIL">
+      <HintPath>..\packages\UnmanagedExports.1.2.7\lib\net\RGiesecke.DllExport.Metadata.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exports\ConfigManagerStruct.cs" />
+    <Compile Include="Form\Dialog\FrmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmHelp.Designer.cs">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmChkAAInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmChkAAInfo.Designer.cs">
+      <DependentUpon>FrmChkAAInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmConfigParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmConfigProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmConfigProject.designer.cs">
+      <DependentUpon>FrmConfigProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmMkMp4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmMkMp4.Designer.cs">
+      <DependentUpon>FrmMkMp4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmMkProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmMkProject.designer.cs">
+      <DependentUpon>FrmMkProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmTone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmTone.Designer.cs">
+      <DependentUpon>FrmTone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmAscii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmAscii.Designer.cs">
+      <DependentUpon>FrmAscii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dialog\FrmConfig.Designer.cs">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmImage.Designer.cs">
+      <DependentUpon>FrmImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmInfo.Designer.cs">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLine.Designer.cs">
+      <DependentUpon>FrmLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmProcessCansel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmProcessCansel.Designer.cs">
+      <DependentUpon>FrmProcessCansel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\CharManager.cs" />
+    <Compile Include="Manager\Command.cs" />
+    <Compile Include="Manager\ConfigManager.cs" />
+    <Compile Include="Manager\Data\CharData.cs" />
+    <Compile Include="Manager\MainManager.cs" />
+    <Compile Include="Manager\MainManagerProject.cs" />
+    <Compile Include="Patturn\DirectionUtil.cs" />
+    <Compile Include="Patturn\PatturnBuilder.cs" />
+    <Compile Include="Patturn\PatturnInfo.cs" />
+    <Compile Include="Patturn\PointLink.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControl\AddPrevControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\AddPrevControl.designer.cs">
+      <DependentUpon>AddPrevControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CustomOpenImgFileDialog.cs" />
+    <Compile Include="UserControl\HandleHelperImg.cs" />
+    <Compile Include="UserControl\MessageHucker.cs" />
+    <Compile Include="UserControl\PanelDBuffer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControl\AddCharSetControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\AddCharSetControl.designer.cs">
+      <DependentUpon>AddCharSetControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CustomSaveCharFileDialog.cs" />
+    <Compile Include="UserControl\HandleHelperChar.cs" />
+    <Compile Include="Exports\AAUtilForJNA.cs" />
+    <Compile Include="Util\AAUtil.cs" />
+    <Compile Include="Util\Helper\AAConvThread.cs" />
+    <Compile Include="Util\ImageUtil.cs" />
+    <Compile Include="Util\InfoUtil.cs" />
+    <Compile Include="Util\LaplacianUtil.cs" />
+    <Compile Include="Util\ThinLineUtil.cs" />
+    <Compile Include="Win32\Win32Api.cs" />
+    <EmbeddedResource Include="Form\Dialog\FrmHelp.resx">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Dialog\FrmChkAAInfo.resx">
+      <DependentUpon>FrmChkAAInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Dialog\FrmConfigProject.resx">
+      <DependentUpon>FrmConfigProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Dialog\FrmMkMp4.resx">
+      <DependentUpon>FrmMkMp4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Dialog\FrmMkProject.resx">
+      <DependentUpon>FrmMkProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Dialog\FrmTone.resx">
+      <DependentUpon>FrmTone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmAscii.resx">
+      <DependentUpon>FrmAscii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Dialog\FrmConfig.resx">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmImage.resx">
+      <DependentUpon>FrmImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmInfo.resx">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLine.resx">
+      <DependentUpon>FrmLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmProcessCansel.resx">
+      <DependentUpon>FrmProcessCansel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserControl\AddPrevControl.resx">
+      <DependentUpon>AddPrevControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\PanelDBuffer.resx">
+      <DependentUpon>PanelDBuffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\AddCharSetControl.resx">
+      <DependentUpon>AddCharSetControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="アイコン1.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="../packages/UnmanagedExports.1.2.7/tools/RGiesecke.DllExport.targets" Condition="Exists('../packages/UnmanagedExports.1.2.7/tools/RGiesecke.DllExport.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
