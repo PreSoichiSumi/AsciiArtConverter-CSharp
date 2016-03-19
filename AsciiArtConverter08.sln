@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsciiArtConverter08", "AsciiArtConverter08\AsciiArtConverter08.csproj", "{D1F2DB8F-9958-4D65-8224-7A76C1B7E6AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsciiArtConverterTest", "AsciiArtConverterTest\AsciiArtConverterTest.csproj", "{2D5BC530-CEB0-47B4-9276-509B7A304AD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{D1F2DB8F-9958-4D65-8224-7A76C1B7E6AE}.Release|x64.Build.0 = Release|x64
 		{D1F2DB8F-9958-4D65-8224-7A76C1B7E6AE}.Release|x86.ActiveCfg = Release|x86
 		{D1F2DB8F-9958-4D65-8224-7A76C1B7E6AE}.Release|x86.Build.0 = Release|x86
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Debug|x64.Build.0 = Debug|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Debug|x86.Build.0 = Debug|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Release|x64.ActiveCfg = Release|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Release|x64.Build.0 = Release|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D5BC530-CEB0-47B4-9276-509B7A304AD0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

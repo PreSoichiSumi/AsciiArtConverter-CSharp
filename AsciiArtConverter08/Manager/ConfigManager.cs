@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using AsciiArtConverter08.Exports;
+using System.Runtime.InteropServices;
 
 namespace AsciiArtConverter08.Manager
 {
     public class ConfigManager
     {
+        
         private int sizeType = 0;
         private Size sizeImage = new Size();
 
@@ -55,6 +58,51 @@ namespace AsciiArtConverter08.Manager
 
         private Dictionary<string, string> config = null;
 
+        public ConfigManager() { }
+
+        public unsafe ConfigManager(ConfigManagerStruct data)
+        {
+            this.sizeType = data.sizeType;
+
+            this.sizeImage.Width = data.sizeImageW;
+            this.sizeImage.Height = data.sizeImageH;
+
+            this.accuracy = data.accuracy;
+            this.lapRange = data.lapRange;
+            this.noizeLen = data.noizeLen;
+            this.connectRange = data.connectRange;
+            
+            this.font = new Font(Marshal.PtrToStringUni(data.fontName), data.fontSize);
+
+            this.pitch = data.pitch;
+            this.match = data.match;
+            
+            this.score1 = data.score1;
+            this.score2 = data.score2;
+
+            this.multi = data.multi;
+
+            this.matchCnt = data.matchCnt;
+
+            this.charSet = data.charSet;
+
+            this.tone = data.tone;
+            this.reversal = data.reversal;
+            this.toneValue = data.toneValue;
+            
+            this.toneTxt = Marshal.PtrToStringUni(data.toneTxt).Split('＠');
+
+            this.textColor = Color.FromArgb(data.textColor);
+            this.canvsColor = Color.FromArgb(data.canvsColor);
+
+            this.angle = data.angle;
+
+            this.useNotDir = data.useNotDir;
+
+            this.score3 = data.score3;
+            this.score4 = data.score4;
+        }
+
         public void SetProjectConfig(Dictionary<string, string> dic)
         {
             foreach (string key in dic.Keys)
@@ -79,7 +127,6 @@ namespace AsciiArtConverter08.Manager
             this.projEnc = dic["proj_enc"];
 
             this.projOrignFPS = Convert.ToDecimal(dic["proj_orign_fps"]);
-
         }
 
         public void SetConfig(Dictionary<string, string> dic)
