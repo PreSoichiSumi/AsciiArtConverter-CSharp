@@ -21,7 +21,7 @@ namespace AsciiArtConverterTest
             var data = image.LockBits(new Rectangle(0, 0, image.Width, image.Height), ImageLockMode.ReadOnly,
                 PixelFormat.Format32bppArgb);
             Marshal.Copy(data.Scan0, buffer, 0, buffer.Length);
-            var config = CreateConfigManager();
+            var config = CreateConfigManager(image);
             fixed (int* p = buffer)
             {
                 var result = AAConvUtilForJNA.getAA(p, image.Width, image.Height, new IntPtr(&config));
@@ -33,13 +33,13 @@ namespace AsciiArtConverterTest
             }
         }
 
-        static ConfigManagerStruct CreateConfigManager()
-        {
+        static ConfigManagerStruct CreateConfigManager(Image i)
+        { 
             ConfigManagerStruct config = new ConfigManagerStruct();
             config.accuracy = 50;
             config.angle = 2;
-            config.canvsColor = 0xffffff;
-            config.textColor = 0;
+            config.canvsColor = Color.White.ToArgb();
+            config.textColor = Color.Black.ToArgb();
             config.charSet = 2;
             config.connectRange = 1;
             config.noizeLen = 20;
@@ -49,7 +49,7 @@ namespace AsciiArtConverterTest
             config.score2 = 100;
             config.score3 = 80;
             config.score4 = 100;
-            config.sizeType = 0;
+            config.sizeType = 1;
             config.pitch = 0;
             config.match = 2;
             config.toneValue = 222;
@@ -57,6 +57,9 @@ namespace AsciiArtConverterTest
             config.fontName = Marshal.StringToHGlobalUni("ＭＳ Ｐゴシック");
             config.toneTxt = Marshal.StringToHGlobalUni(":＠: ＠:  ＠. ");
             config.fontSize = 12;
+            config.sizeImageH = i.Size.Height;
+            config.sizeImageW = i.Size.Width;
+            config.matchCnt = 2;
             return config;
         }
     }
