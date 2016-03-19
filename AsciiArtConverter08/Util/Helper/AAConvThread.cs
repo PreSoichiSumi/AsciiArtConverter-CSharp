@@ -90,9 +90,10 @@ namespace AsciiArtConverter08.Util.Helper
 
         public void DoThread()
         {
+            Console.WriteLine("\nああ^～");
             int left = 0;
             int width = this.table.GetLength(0);
-
+            Console.Write(" 1");
             StringBuilder sbAA = new StringBuilder();
             StringBuilder sbAAType = new StringBuilder();
 
@@ -102,11 +103,12 @@ namespace AsciiArtConverter08.Util.Helper
             CharData halfW = this.charm[' '];
             CharData wideW = this.charm['　'];
             CharData priod = this.charm['.'];
-
+            Console.Write(" 2");
             bool left0Flg = true;
-
+            Console.WriteLine(" width={0} ",width);
             while (left < width)
             {
+                Console.Write("loop left={0}: 1", left);
                 CharData append = null;
                 CharData match = null;
 
@@ -130,7 +132,7 @@ namespace AsciiArtConverter08.Util.Helper
                     }
                 }
 
-
+                Console.Write(" 2");
                 //マッチング処理
 
                 object[] o = GetDirChar(left, ref append);
@@ -138,7 +140,7 @@ namespace AsciiArtConverter08.Util.Helper
                 int type = 0;
 
                 match = (CharData)o[0];
-
+                Console.Write(" 2");
                 if (((double)o[1]) > 0.1d)
                 {
                 }
@@ -152,7 +154,7 @@ namespace AsciiArtConverter08.Util.Helper
                         type = 1;
                     }
                 }
-
+                Console.Write(" 3");
                 if (append != null && append.Character == ' ' && match.Character == ' ')
                 {
                     append = null;
@@ -179,7 +181,7 @@ namespace AsciiArtConverter08.Util.Helper
                     cinfo.Add(new CharInfo(match.Character, type));
                 }
 
-
+                Console.Write(" 4");
 
             ADD_CHAR:
 
@@ -220,7 +222,7 @@ namespace AsciiArtConverter08.Util.Helper
 
                     left += this.charm[c].Width;
                 }
-
+                Console.Write(" 5");
                 if (left0Flg && sbAA.Length > 3 && sbAA[0] == ' ')
                 {
                     sbAA.Remove(0, sbAA.Length);
@@ -235,7 +237,7 @@ namespace AsciiArtConverter08.Util.Helper
                 }
 
                 cinfo.Clear();
-
+                Console.WriteLine(" 6");
             }
   
             lock (lockObject)

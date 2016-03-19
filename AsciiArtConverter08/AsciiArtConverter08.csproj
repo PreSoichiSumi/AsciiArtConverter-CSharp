@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D1F2DB8F-9958-4D65-8224-7A76C1B7E6AE}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AsciiArtConverter08</RootNamespace>
     <AssemblyName>AsciiArtConverter08</AssemblyName>
@@ -61,7 +61,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>AsciiArtConverter08.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>アイコン1.ico</ApplicationIcon>
@@ -108,6 +109,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Exports\CharManagerStruct.cs" />
     <Compile Include="Exports\ConfigManagerStruct.cs" />
     <Compile Include="Form\Dialog\FrmHelp.cs">
       <SubType>Form</SubType>
