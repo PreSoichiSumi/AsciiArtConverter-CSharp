@@ -341,4 +341,5 @@ namespace AsciiArtConverter08.Manager
             return DialogResult.Cancel;
         }
     }
+    
 }

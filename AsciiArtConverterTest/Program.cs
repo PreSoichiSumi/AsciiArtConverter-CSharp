@@ -17,8 +17,9 @@ namespace AsciiArtConverterTest
     {
         unsafe static void Main(String[] args)
         {
-            Image image = Image.FromFile("test08.png");
+            /*Image image = Image.FromFile("test08.png");
             ConfigManager cm = AAUtilForDebug.initCM(new ConfigManager());
+            
             AAUtilForDebug.setAAZoom(cm, 6);
             CharManager charm = new CharManager(cm);
             Image newimg= AAUtilForDebug.ConvertLine(image,cm);
@@ -26,8 +27,8 @@ namespace AsciiArtConverterTest
             using (var writer = new StreamWriter("a.txt"))
             {
                 writer.Write(aa[0]);
-            }
-            /*var image = new Bitmap("test08.png");
+            }*/
+            var image = new Bitmap("test08.png");
             int[] buffer = new int[image.Width * image.Height];
             var data = image.LockBits(new Rectangle(0, 0, image.Width, image.Height), ImageLockMode.ReadOnly,
                 PixelFormat.Format32bppArgb);
@@ -42,7 +43,7 @@ namespace AsciiArtConverterTest
                 {
                     writer.Write(aa);
                 }
-            }*/
+            }
         }
 
         static ConfigManagerStruct CreateConfigManager(Image i)

@@ -12,6 +12,7 @@ using System.Threading;
 using AsciiArtConverter08.Util.Helper;
 using System.Windows.Forms;
 using AsciiArtConverter08.Exports;
+using AsciiArtConverter08.Util;
 
 namespace AsciiArtConverter08.Exports
 {
@@ -31,19 +32,11 @@ namespace AsciiArtConverter08.Exports
 
             Bitmap bmp;
             
-            int a = buf[0];
-
-            
-
-            int b = buf[230400 - 1];
-
-            
             unsafe
             {
                bmp = new Bitmap(bufW, bufH, bufW*4,PixelFormat.Format32bppArgb, new IntPtr(buf)); //buf
             }
-            
-            Console.WriteLine("2");
+            bmp= (Bitmap)ConvertLine(bmp, cm);
             char[,] table = GetTable(bmp);  //画像取得
             char[,] toneTable = GetToneTable(bmp, cm);  //トーン
 
@@ -85,15 +78,12 @@ namespace AsciiArtConverter08.Exports
             }
            // String test = "auioe";
             ///if (true) return Marshal.StringToCoTaskMemUni(test);
-            Console.WriteLine("3");
             for (int i = 0; i < splitTable.Length; i+=multi)
             {
-                Console.Write("i= "+i);
                 if (i + multi >= splitTable.Length)
                 {
                     multi = splitTable.Length - i;
                 }
-                Console.Write(" one");
                 AAConvThread[] at = new AAConvThread[multi];
 
                 for (int j = 0; j < at.Length; j++)
@@ -101,7 +91,6 @@ namespace AsciiArtConverter08.Exports
                     at[j] = new AAConvThread(cm, charm, splitTable[i + j], lstSplitToneTable[i + j]);
                     at[j].DoThread();
                 }
-                Console.Write(" two");
                 while (true)
                 {
                     Application.DoEvents();
@@ -122,7 +111,6 @@ namespace AsciiArtConverter08.Exports
                         ;
 
                 }
-                Console.Write(" three");
                 prog+=at.Length;
 
                 for (int j = 0; j < at.Length; j++)
@@ -130,9 +118,7 @@ namespace AsciiArtConverter08.Exports
                     sbAA.Append(at[j].AA + "\r\n");
                     sbAAType.Append(at[j].AA_Type + "\r\n");
                 }
-                Console.WriteLine(" four");
             }
-            Console.WriteLine("converted");
             //char[] aa = sbAA.ToString().ToCharArray();//copy?
             //IntPtr aaPtr = Marshal.AllocCoTaskMem(aa.Length * sizeof(char));    //TODO AllocHGlobalとの違い
             //Marshal.Copy(aa, 0, aaPtr, aa.Length);  //copy
@@ -144,6 +130,38 @@ namespace AsciiArtConverter08.Exports
         public static void freeAA(IntPtr aa)
         {
             Marshal.FreeCoTaskMem(aa);
+        }
+
+        public static Image ConvertLine(Image i, ConfigManager cm)
+        {
+            int w = i.Width;
+            int h = i.Height;
+
+            if (cm.SizeType != 0)
+            {
+                w = cm.SizeImage.Width;
+                h = cm.SizeImage.Height;
+            }
+
+            Image lapImage = null;
+
+            using (Image newImage = ImageUtil.ZoomImage(i, new Size(w, h), false))
+            {
+                //newImage.Save("c:\\aaa.png", ImageFormat.Png);
+
+                int ac = cm.Accuracy;
+                int lr = cm.LapRange;
+                int nl = cm.NoizeLen;
+                int cr = cm.ConnectRange;
+
+                using (Image tmpImage = ImageUtil.GetLineImage(newImage, ac, lr, nl, cr, cm))
+                {
+                    lapImage = ImageUtil.ZoomImage(tmpImage, new Size(w, h), true);
+                }
+            }
+
+            return lapImage;
+
         }
 
         public static void DebugTable(char[,] c)

@@ -148,7 +148,7 @@ namespace AsciiArtConverter08.Util
             cm.accuracy= 50;
             cm.angle= 2;
             cm.canvsColor = Color.White;
-            cm.charSet = 2;
+            cm.charSet = 5;
             cm.config = null;
             cm.connectRange = 1;
             cm.font = new Font("ＭＳ ゴシック", 12,FontStyle.Regular);

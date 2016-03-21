@@ -11,12 +11,12 @@ namespace AsciiArtConverter08.Exports
     [StructLayout(LayoutKind.Sequential)]
     public unsafe struct ConfigManagerStruct
     {
-        public int sizeType;
+        public int sizeType;    //0..変更なし，1以上..sizeImageのW,Hにする
         public int sizeImageW;
         public int sizeImageH;
 
         public int accuracy;
-        public int lapRange;
+        public int lapRange;    //輪郭抽出の比較範囲
         public int noizeLen;
         public int connectRange;
 
