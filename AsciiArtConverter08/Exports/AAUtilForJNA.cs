@@ -22,7 +22,8 @@ namespace AsciiArtConverter08.Exports
         [RGiesecke.DllExport.DllExport]
         public unsafe static IntPtr getAA(int* buf,int bufW,int bufH, IntPtr cmsPtr/*, IntPtr res*/)//JNAのPointerはint[]では受け取れない．オブジェクト的なやつだからね
         {   //AA変換結果であるresだけはjavaが利用し終わるまでGCしてはならない
-            
+             //String test = "auioe";
+           　///if (true) return Marshal.StringToCoTaskMemUni(test);
             ConfigManagerStruct cms = *(ConfigManagerStruct*)(cmsPtr.ToPointer());
             
             ConfigManager cm = new ConfigManager(cms);
@@ -36,6 +37,7 @@ namespace AsciiArtConverter08.Exports
             {
                bmp = new Bitmap(bufW, bufH, bufW*4,PixelFormat.Format32bppArgb, new IntPtr(buf)); //buf
             }
+            
             bmp= (Bitmap)ConvertLine(bmp, cm);
             char[,] table = GetTable(bmp);  //画像取得
             char[,] toneTable = GetToneTable(bmp, cm);  //トーン
@@ -76,8 +78,7 @@ namespace AsciiArtConverter08.Exports
 
                 multi = (int)sysInfo.dwNumberOfProcessors;
             }
-           // String test = "auioe";
-            ///if (true) return Marshal.StringToCoTaskMemUni(test);
+           
             for (int i = 0; i < splitTable.Length; i+=multi)
             {
                 if (i + multi >= splitTable.Length)
@@ -137,7 +138,7 @@ namespace AsciiArtConverter08.Exports
             int w = i.Width;
             int h = i.Height;
 
-            if (cm.SizeType != 0)
+            if (cm.SizeType != 0)       //0なら元画像のまま，そうでなければ，sizeimageのしていどおりに
             {
                 w = cm.SizeImage.Width;
                 h = cm.SizeImage.Height;
@@ -283,5 +284,6 @@ namespace AsciiArtConverter08.Exports
 
             return table;
         }
+
     }
 }
