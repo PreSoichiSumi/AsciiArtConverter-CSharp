@@ -175,9 +175,43 @@ namespace AsciiArtConverter08.Util
             return cm;
         }
 
-        public static void setAAZoom()
+        public static void setAAZoom(ConfigManager cm,int sizeType)
         {
+            if ( !(0 <= sizeType && sizeType <= 6) )
+                return;
+            cm.sizeType = sizeType;
+            switch (sizeType)
+            {
+                case 0:
+                    break;
+                case 1:
+                    cm.sizeImage.Width = 640;
+                    cm.sizeImage.Height = 480;
+                    break;
+                case 2:
+                    cm.sizeImage.Width = 800;
+                    cm.sizeImage.Height = 600;
+                    break;
+                case 3:
+                    cm.sizeImage.Width = 960;
+                    cm.sizeImage.Height = 540;
+                    break;
+                case 4:
+                    cm.sizeImage.Width = 1024;
+                    cm.sizeImage.Height = 768;
+                    break;
+                case 5:
+                    cm.sizeImage.Width = 1280;
+                    cm.sizeImage.Height = 720;
+                    break;
+                case 6:
+                    cm.sizeImage.Width = 1920;
+                    cm.sizeImage.Height = 1080;
+                    break;
+                default:
+                    break;
 
+            }
         }
 
         public static void DebugTable(char[,] c)
