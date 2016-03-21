@@ -240,6 +240,7 @@
     <Compile Include="UserControl\CustomSaveCharFileDialog.cs" />
     <Compile Include="UserControl\HandleHelperChar.cs" />
     <Compile Include="Exports\AAUtilForJNA.cs" />
+    <Compile Include="Util\AAUtilForDebug.cs" />
     <Compile Include="Util\AAUtil.cs" />
     <Compile Include="Util\Helper\AAConvThread.cs" />
     <Compile Include="Util\ImageUtil.cs" />

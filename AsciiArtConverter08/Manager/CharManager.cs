@@ -16,6 +16,7 @@ namespace AsciiArtConverter08.Manager
         private Dictionary<char, CharData> dicData = new Dictionary<char, CharData>();
         private int count = 0;
 
+        //ConfigManagerに応じてcharmanagerを設定
         public CharManager(ConfigManager cm)
         {
             Font font = cm.Font;
@@ -36,7 +37,7 @@ namespace AsciiArtConverter08.Manager
                 charSetName = "\\user_def_" + (cm.CharSet - 4) + ".txt";
             }
             
-            /*using (StreamReader sr = new StreamReader(Application.StartupPath + "\\charset" + charSetName, Encoding.GetEncoding("UTF-8")))
+            using (StreamReader sr = new StreamReader(Application.StartupPath + "\\charset" + charSetName, Encoding.GetEncoding("UTF-8")))
             {
                 chardata = sr.ReadLine();
 
@@ -44,8 +45,8 @@ namespace AsciiArtConverter08.Manager
                 {
                     chardata = sr.ReadLine();
                 }
-            }*/
-            chardata = "_'-ｌﾞ;`｀,ｰ/、／─‐´￣＼＿，′=ﾆﾉ－‘\"ﾟ｡丿⌒ーｒノニ└（〈∥^｛ヽｊ､．；∟┌ιヾ｣ｨrⅤﾐ7〃L」’゜}。┐)┘+v〉ｭгJｿ゛>c⊥７ﾄＴ├ﾊ<く∠Ｌ＝Τ?ｚﾍ{Гゝ～ｆ≒バミT亠ｪΞтハ";
+            }
+            //chardata = "_'-ｌﾞ;`｀,ｰ/、／─‐´￣＼＿，′=ﾆﾉ－‘\"ﾟ｡丿⌒ーｒノニ└（〈∥^｛ヽｊ､．；∟┌ιヾ｣ｨrⅤﾐ7〃L」’゜}。┐)┘+v〉ｭгJｿ゛>c⊥７ﾄＴ├ﾊ<く∠Ｌ＝Τ?ｚﾍ{Гゝ～ｆ≒バミT亠ｪΞтハ";
 
             //半角空白は必須
             if (chardata.IndexOf(' ') == -1)

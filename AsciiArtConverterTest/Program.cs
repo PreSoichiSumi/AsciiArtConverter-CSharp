@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AsciiArtConverter08.Exports;
 using AsciiArtConverter08.Util;
+using AsciiArtConverter08.Manager;
 
 namespace AsciiArtConverterTest
 {
@@ -17,6 +18,13 @@ namespace AsciiArtConverterTest
         unsafe static void Main(string[] args)
         {
             var image = new Bitmap("test08.png");
+            ConfigManager cm = AAUtilForDebug.initCM(new ConfigManager());
+            string[] aa = AAUtilForDebug.Convert(image, cm, new CharManager(cm));
+            using (var writer = new StreamWriter("a.txt"))
+            {
+                writer.Write(aa[0]);
+            }
+            /*var image = new Bitmap("test08.png");
             int[] buffer = new int[image.Width * image.Height];
             var data = image.LockBits(new Rectangle(0, 0, image.Width, image.Height), ImageLockMode.ReadOnly,
                 PixelFormat.Format32bppArgb);
@@ -26,11 +34,12 @@ namespace AsciiArtConverterTest
             {
                 var result = AAConvUtilForJNA.getAA(p, image.Width, image.Height, new IntPtr(&config));
                 var aa = Marshal.PtrToStringUni(result);
+
                 using (var writer = new StreamWriter("a.txt"))
                 {
                     writer.Write(aa);
                 }
-            }
+            }*/
         }
 
         static ConfigManagerStruct CreateConfigManager(Image i)

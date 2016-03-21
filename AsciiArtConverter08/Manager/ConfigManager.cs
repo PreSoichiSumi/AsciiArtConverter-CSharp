@@ -11,52 +11,52 @@ namespace AsciiArtConverter08.Manager
     public class ConfigManager
     {
         
-        private int sizeType = 0;
-        private Size sizeImage = new Size();
+        public int sizeType = 0;
+        public Size sizeImage = new Size();
 
-        private int accuracy = 0;
-        private int lapRange = 0;
-        private int noizeLen = 0;
-        private int connectRange = 0;
+        public int accuracy = 0;
+        public int lapRange = 0;
+        public int noizeLen = 0;
+        public int connectRange = 0;
 
-        private int pitch = 0;
-        private int charSet = 0;
-        private int match = 0;
-        private Font font = null;
+        public int pitch = 0;
+        public int charSet = 0;
+        public int match = 0;
+        public Font font = null;
         
-        private int score1 = 0;
-        private int score2 = 0;
-        private bool multi = false;
+        public int score1 = 0;
+        public int score2 = 0;
+        public bool multi = false;
 
-        private int matchCnt = 0;
+        public int matchCnt = 0;
 
-        private bool tone = false;
-        private bool reversal = false;
-        private int toneValue = 0;
-        private string[] toneTxt = null;
+        public bool tone = false;
+        public bool reversal = false;
+        public int toneValue = 0;
+        public string[] toneTxt = null;
 
-        private Color textColor;
-        private Color canvsColor;
+        public Color textColor;
+        public Color canvsColor;
 
-        private int angle = 0;
+        public int angle = 0;
 
-        private bool useNotDir = false;
-        private int score3 = 0;
-        private int score4 = 0;
+        public bool useNotDir = false;
+        public int score3 = 0;
+        public int score4 = 0;
 
-        private string projFileName = "";
-        private string projMode = "";
-        private bool projLine = false;
-        private bool projMkMp4 = false;
-        private int projBitrate = 0;
-        private int projSkip = 0;
-        private string projFps = "";
-        private string projEnc = "";
-        private decimal projOrignFPS = 0.0m;
+        public string projFileName = "";
+        public string projMode = "";
+        public bool projLine = false;
+        public bool projMkMp4 = false;
+        public int projBitrate = 0;
+        public int projSkip = 0;
+        public string projFps = "";
+        public string projEnc = "";
+        public decimal projOrignFPS = 0.0m;
 
-        private bool isProject = false;
+        public bool isProject = false;
 
-        private Dictionary<string, string> config = null;
+        public Dictionary<string, string> config = null;
 
         public ConfigManager() { }
 
