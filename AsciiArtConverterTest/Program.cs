@@ -19,6 +19,7 @@ namespace AsciiArtConverterTest
         {
             Image image = Image.FromFile("test08.png");
             ConfigManager cm = AAUtilForDebug.initCM(new ConfigManager());
+            AAUtilForDebug.setAAZoom(cm, 6);
             CharManager charm = new CharManager(cm);
             Image newimg= AAUtilForDebug.ConvertLine(image,cm);
             String[] aa = AAUtilForDebug.Convert((Bitmap)newimg, cm, charm);

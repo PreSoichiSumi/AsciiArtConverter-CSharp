@@ -213,6 +213,7 @@ namespace AsciiArtConverter08.Util
 
             }
         }
+        
 
         public static void DebugTable(char[,] c)
         {
