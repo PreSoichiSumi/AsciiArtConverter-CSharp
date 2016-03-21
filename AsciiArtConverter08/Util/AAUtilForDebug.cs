@@ -17,7 +17,38 @@ namespace AsciiArtConverter08.Util
     //AAUtil.Convertのデバッグ用クラス
     public class AAUtilForDebug
     {
-        
+        //細線化
+        public static Image ConvertLine(Image i,ConfigManager cm)
+        {
+            int w = i.Width;
+            int h = i.Height;
+
+            if (cm.SizeType != 0)
+            {
+                w = cm.SizeImage.Width;
+                h = cm.SizeImage.Height;
+            }
+
+            Image lapImage = null;
+
+            using (Image newImage = ImageUtil.ZoomImage(i, new Size(w, h), false))
+            {
+                //newImage.Save("c:\\aaa.png", ImageFormat.Png);
+
+                int ac = cm.Accuracy;
+                int lr = cm.LapRange;
+                int nl = cm.NoizeLen;
+                int cr = cm.ConnectRange;
+
+                using (Image tmpImage = ImageUtil.GetLineImage(newImage, ac, lr, nl, cr, cm))
+                {
+                    lapImage = ImageUtil.ZoomImage(tmpImage, new Size(w, h), true);
+                }
+            }
+
+            return lapImage;
+
+        }
         public static String[] Convert(Bitmap bmp, ConfigManager cm, CharManager charm)
         {
             char[,] table = GetTable(bmp);  //画像取得
@@ -120,7 +151,7 @@ namespace AsciiArtConverter08.Util
             cm.charSet = 2;
             cm.config = null;
             cm.connectRange = 1;
-            cm.font = new Font("ＭＳ　ゴシック", 12);
+            cm.font = new Font("ＭＳ ゴシック", 12,FontStyle.Regular);
             cm.isProject = false;
             cm.lapRange = 9;
             cm.match = 2;
@@ -142,6 +173,11 @@ namespace AsciiArtConverter08.Util
             cm.toneValue = 222;
             cm.useNotDir = true;
             return cm;
+        }
+
+        public static void setAAZoom()
+        {
+
         }
 
         public static void DebugTable(char[,] c)

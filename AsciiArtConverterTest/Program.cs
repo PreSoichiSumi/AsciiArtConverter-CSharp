@@ -15,11 +15,13 @@ namespace AsciiArtConverterTest
 {
     class Program
     {
-        unsafe static void Main(string[] args)
+        unsafe static void Main(String[] args)
         {
-            var image = new Bitmap("test08.png");
+            Image image = Image.FromFile("test08.png");
             ConfigManager cm = AAUtilForDebug.initCM(new ConfigManager());
-            string[] aa = AAUtilForDebug.Convert(image, cm, new CharManager(cm));
+            CharManager charm = new CharManager(cm);
+            Image newimg= AAUtilForDebug.ConvertLine(image,cm);
+            String[] aa = AAUtilForDebug.Convert((Bitmap)newimg, cm, charm);
             using (var writer = new StreamWriter("a.txt"))
             {
                 writer.Write(aa[0]);
